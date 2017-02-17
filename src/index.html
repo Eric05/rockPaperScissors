@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="styles/main.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+</head>
+
+<body onload="blink()" ;>
+
+    <div id="bod">
+
+        <div id="wrap">
+            <a class="btn btn-info btn-lg" id="s" style="background-color:yellow;">
+                <span class="glyphicon glyphicon-scissors"></span> Scissors
+            </a>
+            <a class="btn btn-info btn-lg" id="st" style="background-color:grey;">
+                <span class="glyphicon glyphicon-stop"></span> Stone
+            </a>
+            <a class="btn btn-info btn-lg" id="p" style="background-color:blue;">
+                <span class="glyphicon glyphicon-send"></span> Paper
+            </a>
+        </div>
+        <br>
+
+
+        <br>
+        <h1 id="sco">First who scores </br> SEVEN points wins </h1>
+        <br>
+        <h4>Let s play!</h4>
+        <a class="btn btn-info btn-lg" id="p" onclick="star();" style="background-color:navy; padding:20px;margin-bottom:10px;margin-left:35%;">
+         Start Game
+        </a>
+
+
+    </div>
+
+    <div id="arena">
+
+        <h2 id="you"> 0</h2>
+
+        <h2> Your score: </h2>
+        <br>
+        <h2 id="comp"> 0 </h2>
+        <h2> Computer: </h2>
+        <br>
+        <hr style="background-color: rgba(86, 223, 225, 0.3);
+	border-top: 2px dashed navy;">
+        <h3> Your choice:</h3>
+        <br>
+        <input id="schere" onclick="random(), result(), bang();" value="Schere"> </input>
+        <br>
+        <input id="stein" onclick="random(), result(), bang();" value="Stein" </input>
+        <br>
+        <input id="papier" onclick="random(), result(), bang();" value="Papier" </input>
+        <br> <br>
+        <h3>Computer chose:</h3>
+        <p id="demo">*****</p>
+    </div>
+
+    <script>
+        function star() {
+            $(document).ready(function() {
+                $("#bod").hide(500);
+            });
+        }
+
+        function conf() {
+            $(document).ready(function() {
+                $("#bod").delay(500).show(500);
+            });
+            ne();
+        }
+
+        function blink() {
+            for (i = 0; i < 500; i++)
+                $(document).ready(function() {
+
+                    $("#s").fadeTo(2000, 0.1).delay(1000).fadeTo(4000, 1);
+                    $("#st").delay(1000).fadeTo(2000, 0.1).delay(1500).fadeTo(2500, 1);
+                    $("#p").delay(2000).fadeTo(2000, 0.1).delay(2000).fadeTo(1000, 1);
+
+                });
+        }
+        var a = 0.33;
+        var b = 0.66;
+        var i;
+        var score = 0;
+        var scom = 0;
+        var win = "";
+
+
+
+        function ne() {
+            if (score > 6) {
+                win = "You win!"
+            }
+            if (scom > 6) {
+                win = "Computer wins!"
+            }
+            document.getElementById("you").innerHTML = 0;
+            document.getElementById("comp").innerHTML = 0;
+            document.getElementById("demo").innerHTML = "*****";
+            document.getElementById("sco").innerHTML = win;
+            score = 0;
+            scom = 0;
+            val = "Schere";
+            text = "STP";
+        }
+
+
+        function add() {
+
+            return score += 1;
+
+        }
+
+        function add1() {
+            return scom += 1;
+        }
+
+        $("input").mouseover(function() {
+            value = $(this).val();
+        });
+
+        function random() {
+            if (Math.random() < a) {
+                text = "Schere";
+                $(document).ready(function() {
+                    $("p").css("background-color", "yellow");
+                });
+            } else if (Math.random() > a && Math.random() < b) {
+                text = "Stein";
+                $(document).ready(function() {
+                    $("p").css("background-color", "grey");
+                });
+            } else {
+                text = "Papier";
+                $(document).ready(function() {
+                    $("p").css("background-color", "blue");
+                });
+            }
+
+            document.getElementById("demo").innerHTML = text;
+        }
+
+        // KI
+
+        function result() {
+
+
+            if (score > 6 || scom > 6) {
+                conf();
+            }
+
+            if (text == "Schere" && value == "Stein") {
+
+                document.getElementById("you").innerHTML = add();
+            }
+            if (text == "Papier" && value == "Schere") {
+
+                document.getElementById("you").innerHTML = add();
+            }
+            if (text == "Stein" && value == "Papier") {
+
+                document.getElementById("you").innerHTML = add();
+            }
+
+            if (text == "Stein" && value == "Schere") {
+                document.getElementById("comp").innerHTML = add1();
+            }
+            if (text == "Papier" && value == "Stein") {
+                document.getElementById("comp").innerHTML = add1();
+            }
+            if (text == "Schere" && value == "Papier") {
+                document.getElementById("comp").innerHTML = add1();
+            }
+        }
+
+        function bang() {
+            if (score > 6 || scom > 6) {
+                conf();
+            }
+        }
+    </script>
+</body>
+
+</html>

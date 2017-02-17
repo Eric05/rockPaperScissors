@@ -1,0 +1,120 @@
+  .btn {
+      border: none;
+      padding: 10px;
+      color: lightblue;
+      width: 25%;
+      padding: 3%;
+      margin-left: 5%;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      overflow: hidden;
+  }
+  
+  #bod {
+      background: linear-gradient(navy, blue);
+      color: lightblue;
+      position: absolute;
+      z-index: 5;
+      width: 100%;
+      min-height: 700px;
+  }
+  
+  #wrap {
+      border: 2px ridge lightblue;
+      padding: 20px;
+      width: 80%;
+      margin: 0 auto;
+      margin-top: 5%;
+  }
+  
+  h1,
+  p,
+  h4 {
+      text-align: center;
+  }
+  
+  h4 {
+      color: white;
+      margin: auto;
+      width: 80%;
+  }
+  
+  #you {
+      float: right;
+      color: navy;
+  }
+  
+  #comp {
+      float: right;
+      color: navy;
+  }
+  
+  h2 {
+      color: navy;
+      display: inline-block;
+      margin-left: 25px;
+      margin-right: 25px;
+      margin-top: 5px;
+  }
+  
+  body {
+      background: linear-gradient(navy, blue);
+  }
+  
+  #arena {
+      background: linear-gradient(darkgrey, white);
+      border: 5px ridge darkgrey;
+      padding: 25px;
+      position: relative;
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 5%;
+  }
+  
+  h3 {
+      color: navy;
+  }
+  
+  input {
+      color: navy;
+      background: rgba(86, 223, 225, 0.3);
+      padding: 15px;
+      width: 60%;
+      margin-left: 20%;
+      border: none;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  #schere:focus {
+      background-color: yellow;
+  }
+  
+  #schere:hover {
+      border: 2px inset yellow;
+      color: yellow;
+  }
+  
+  #stein:focus {
+      background-color: grey;
+  }
+  
+  #stein:hover {
+      border: 2px outset black;
+      color: grey;
+  }
+  
+  #papier:focus {
+      background-color: blue;
+  }
+  
+  #papier:hover {
+      border: 2px inset blue;
+      color: blue;
+  }
+  
+  p {
+      color: navy;
+      background: rgba(86, 223, 225, 0.3);
+      padding: 15px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
